@@ -12,8 +12,14 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.post('/test', function(req, res) {
-    var speech = 'This is a test'
+    var speech
       , intent = req.body.result && req.body.result.metadata.intentName ? req.body.result.metadata.intentName : "noIntent";
+    if(intent === 'checkWebhookUrl'){
+        speech = "This is Webhook URL test." 
+    }
+    else{
+        speech = "No intent Found!"
+    }
     return res.json({
         speech: speech,
         displayText: speech,
