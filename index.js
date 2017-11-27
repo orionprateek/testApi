@@ -37,7 +37,7 @@ app.post('/test', function(req, res) {
         messages.push(tempOb2);
         messages.push(tempOb3);
         return res.json({
-        speech: ''
+        speech: '',
         messages: messages
     }
     else{
