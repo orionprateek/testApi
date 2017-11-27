@@ -13,9 +13,18 @@ app.use(bodyParser.json());
 
 app.post('/test', function(req, res) {
     var speech
+      , messages
       , intent = req.body.result && req.body.result.metadata.intentName ? req.body.result.metadata.intentName : "noIntent";
     if(intent === 'checkWebhookUrl'){
         speech = "This is Webhook URL test." 
+        messages = [
+            {
+              "type": "link_out_chip",
+              "platform": "google",
+              "destinationName": "Video",
+              "url": "https://www.youtube.com/watch?v=1rMm0qaa2Hs"
+            }
+        ]
     }
     else{
         speech = "No intent Found!"
@@ -24,6 +33,7 @@ app.post('/test', function(req, res) {
         speech: speech,
         displayText: speech,
         source: 'webhook-test-sample'
+        messages: messages
     });
 });
 
