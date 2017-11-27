@@ -37,16 +37,17 @@ app.post('/test', function(req, res) {
         messages.push(tempOb2);
         messages.push(tempOb3);
         return res.json({
-        speech: '',
-        messages: messages
+            speech: '',
+            messages: messages
+        });
     }
     else{
         speech = "No intent Found!"
         return res.json({
-        speech: speech,
-        displayText: speech,
-        source: 'webhook-test-sample'
-    });
+            speech: speech,
+            displayText: speech,
+            source: 'webhook-test-sample'
+        });
     }
 });
 
