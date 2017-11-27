@@ -31,7 +31,7 @@ app.post('/test', function(req, res) {
     return res.json({
         speech: speech,
         displayText: speech,
-        source: 'webhook-test-sample'
+        source: 'webhook-test-sample',
         messages: messages
     });
 });
