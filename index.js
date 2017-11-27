@@ -16,17 +16,16 @@ app.post('/test', function(req, res) {
       , messages = new Array()
       , intent = req.body.result && req.body.result.metadata.intentName ? req.body.result.metadata.intentName : "noIntent";
     if(intent === 'checkWebhookUrl'){
-        speech = "This is Webhook URL test." 
         var tempOb1 = {
           "type": "simple_response",
           "platform": "google",
-          "textToSpeech": "Please visit this link.",
-          "displayText": "Please visit this link."
+          "textToSpeech": "Open the link to watch related video.",
+          "displayText": "Open the link to watch related video."
         }
         var tempOb2 = {
           "type": "link_out_chip",
           "platform": "google",
-          "destinationName": "Video",
+          "destinationName": "Youtube",
           "url": "https://www.youtube.com/watch?v=1rMm0qaa2Hs"
         }
         var tempOb3 = {
